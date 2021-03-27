@@ -54,13 +54,13 @@ public class OrderService {
     @Transactional
     public void cancelOrder(Long orderId){
         // 주문 엔티티 조회
-        Order order = orderRepository.findeOne(orderId);
+        Order order = orderRepository.findOne(orderId);
         // 주문 취소
         order.cancel();
     }
 
     // 검색
     public List<Order> findOrders(OrderSearch orderSearch){
-        return orderRepository.findAll(orderSearch);
+        return orderRepository.findAllByString(orderSearch);
     }
 }
